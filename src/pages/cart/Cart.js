@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Row, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,11 +14,11 @@ export default function Cart() {
   const dispatch = useDispatch();
 
   return (
-    <div className="p-3">
+    <Container style={{padding:'4em 20em'}}>
       {cartList && cartList.length > 0 ? (
-        <Row>
+        <div>
           {cartList.map((item, index) => (
-            <Col key={index} md={4} className="mb-4">
+            <Col key={index} md={4} className="mb-4 w-100">
               <Card className="h-100">
                 <Row>
                   <Col md={5} className="text-center">
@@ -63,12 +63,12 @@ export default function Cart() {
               </Card>
             </Col>
           ))}
-        </Row>
+        </div>
       ) : (
         <div className="text-center p-5">
           <h1>Your Cart is empty</h1>
         </div>
       )}
-    </div>
+    </Container>
   );
 }
